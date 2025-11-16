@@ -1,0 +1,27 @@
+\subsection{Overfitting e Underfitting}
+O \textbf{\textit{overfitting}} ocorre quando um modelo aprende detalhes e ruídos específicos do conjunto de treinamento, tornando-se excessivamente ajustado a ele. Com isso, o modelo apresenta ótimo desempenho nos dados de treino, mas falha em generalizar para novos dados.
+
+Já o \textbf{\textit{underfitting}} ocorre quando o modelo é simples demais para capturar as relações existentes nos dados, resultando em baixo desempenho tanto no treino quanto nos testes.
+
+Para identificar a existência de overfitting ou underfitting, algumas técnicas comuns incluem:
+
+\subsubsection{Validação Cruzada}
+
+A \textbf{validação cruzada} (\textit{cross-validation}) é uma técnica estatística usada para avaliar o desempenho de um modelo e estimar sua capacidade de generalização. O método mais comum é o \textit{k-fold cross-validation}, onde o conjunto de dados é dividido em $k$ subconjuntos; o modelo é treinado em $k~–~1$ partes e testado na parte restante, repetindo-se o processo $k$ vezes.
+
+Esse procedimento reduz o risco de que o desempenho do modelo dependa de uma única divisão entre treino e teste, fornecendo uma estimativa mais estável e confiável. Além de ajudar a medir a generalização, a validação cruzada é essencial para comparar modelos e detectar sinais precoces de \textit{overfitting}.
+
+
+\subsubsection{Curvas de aprendizado}
+
+As \textbf{curvas de aprendizado} são representações gráficas que mostram a evolução do desempenho do modelo em função da quantidade de dados ou de iterações de treinamento.
+
+Normalmente, plota-se o erro (ou acurácia) nos conjuntos de treino e validação ao longo do tempo. Essas curvas são ferramentas visuais eficazes para diagnosticar \textit{overfitting} e \textit{underfitting}:
+
+\begin{itemize}
+  \item Se o erro de treino é baixo e o de validação é alto, há indício de \textit{overfitting}.
+  \item Se ambos são altos, há \textit{underfitting}.
+  \item Se ambos convergem para valores baixos e próximos, o modelo está bem ajustado.
+\end{itemize}
+
+As curvas possibilitam a identificação de problemas existentes, permitindo ajustar parâmetros, regularização e quantidade de dados para alcançar o equilíbrio ideal entre aprendizado e generalização.
