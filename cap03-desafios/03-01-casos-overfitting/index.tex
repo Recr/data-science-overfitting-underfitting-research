@@ -2,14 +2,20 @@
 O \textit{overfitting} pode emergir de maneiras diversas dependendo do domínio, mas geralmente está associado a modelos excessivamente ajustados às características específicas do conjunto de treino. A seguir, são apresentados exemplos em que essa limitação leva a falhas de generalização, comprometendo a efetividade de sistemas que dependem de previsões precisas em cenários reais.
 
 \subsubsection{Modelos de reconhecimento facial que só funcionam bem com rostos do conjunto de treino}
-Em sistemas de reconhecimento facial, é comum observar que modelos treinados sob condições controladas (iluminação, pose, resolução, rostos das mesmas etnias) apresentam excelente desempenho nos dados de treino, mas têm queda significativa em cenários reais variados — com diferentes idades, iluminação, resolução ou mesmo expressões faciais. Por exemplo, um estudo mostra que modelos robustos sob condições ideais caem de rendimento quando são executados em cima de uma pose, iluminação ou qualidade degrada.
+Em sistemas de reconhecimento facial, é comum observar que modelos treinados sob condições controladas (iluminação, pose, resolução, rostos das mesmas etnias) apresentam excelente desempenho nos dados de treino, mas têm queda significativa em cenários reais variados — com diferentes idades, iluminação, resolução ou mesmo expressões faciais. 
+
+Por exemplo, um estudo feito por Zhalgas et al. (2025) mostra que modelos robustos sob condições ideais caem de rendimento quando são executados em cima de uma pose, iluminação ou qualidade degrada \cite{zhalgas2025robustfacerecognition}.
 
 Esse problema indica um overfitting implícito: o modelo “memorizou” muitos dos efeitos do conjunto de treino (por exemplo, rostos frontais, boa iluminação, dataset específico) e não generalizou para condições variadas. Em contextos sensíveis como vigilância ou segurança, isso pode levar a falhas graves (falso-negativo ou falso-positivo).
 
 \subsubsection{Modelos de detecção de fraude que falham com padrões novos}
-No domínio de detecção de fraude financeira, por exemplo, os modelos treinados com dados históricos podem funcionar bem para os tipos de fraude já vistos — mas como os fraudadores mudam seus métodos constantemente, os modelos “aprendem” mal os padrões que vão se repetir e acabam falhando com novos padrões. Uma revisão afirma que “modelos convencionais de ML muitas vezes falham por conta da mudança constante de conceito (concept drift) e das fraudes raras (altamente desbalanceadas)”. 
+No domínio de detecção de fraude financeira, por exemplo, os modelos treinados com dados históricos podem funcionar bem para os tipos de fraude já vistos — mas como os fraudadores mudam seus métodos constantemente, os modelos “aprendem” mal os padrões que vão se repetir e acabam falhando com novos padrões.
+
+Uma revisão feita por Compagnino et al. (2025) afirma que modelos convencionais de ML muitas vezes falham por conta da mudança constante de conceito (\textit{concept drift}) e das fraudes raras (altamente desbalanceadas) \cite{compagnino2025introductionmachinelearning}. 
 
 Portanto, mesmo que um modelo apresente acurácia alta em testes internos, se foi ajustado demais ao histórico, ele pode “quebrar” diante de novas estratégias de fraude — custo elevado em finanças, reputação e conformidade.
 
 \subsubsection{Modelos de previsão de demanda que não se adaptam a mudanças de mercado}
-Em previsão de demanda para varejo, modelos treinados com dados históricos podem capturar bem os padrões sazonais e tendências passadas. No entanto, quando ocorrem mudanças abruptas no mercado — como uma pandemia, mudanças econômicas ou novas preferências dos consumidores — esses modelos podem falhar em prever a demanda futura. Isso ocorre porque o modelo pode ter se ajustado demais aos dados históricos, sem conseguir generalizar para novas condições de mercado. Por exemplo, durante a pandemia de COVID-19, muitos modelos de previsão de demanda falharam em antecipar as mudanças rápidas no comportamento do consumidor, resultando em excesso ou falta de estoque.
+Em previsão de demanda para varejo, modelos treinados com dados históricos podem capturar bem os padrões sazonais e tendências passadas. No entanto, quando ocorrem mudanças abruptas no mercado — como uma pandemia, mudanças econômicas ou novas preferências dos consumidores — esses modelos podem falhar em prever a demanda futura. 
+
+Isso ocorre porque o modelo pode ter se ajustado demais aos dados históricos, sem conseguir generalizar para novas condições de mercado. Por exemplo, durante a pandemia de COVID-19, muitos modelos de previsão de demanda falharam em antecipar as mudanças rápidas no comportamento do consumidor, resultando em excesso ou falta de estoque \cite{infor2020}.

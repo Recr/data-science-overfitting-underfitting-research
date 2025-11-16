@@ -44,6 +44,18 @@
 \usepackage{comment}
 \usepackage{soul}
 \usepackage[english,portuguese]{babel}
+
+\hypersetup{
+	breaklinks=true,
+	colorlinks=true,
+	urlcolor=black
+}
+
+\makeatletter
+\g@addto@macro\UrlBreaks{\do\/\do-\do_}
+\makeatother
+
+
 \begin{document}
 
 \maketitle
