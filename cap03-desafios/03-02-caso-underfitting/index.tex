@@ -1,0 +1,9 @@
+\subsection{Casos de Underfitting em Machine Learning}
+Assim como o excesso de complexidade prejudica um modelo, a simplicidade exagerada também impede que padrões relevantes sejam capturados. Os exemplos desta subseção ilustram situações em que o underfitting surge por limitações estruturais ou modelagens inadequadas, resultando em desempenho insuficiente mesmo em tarefas aparentemente simples.
+
+\subsubsection{Modelos lineares simples tentando prever fenômenos complexos}
+Quando se utiliza um modelo linear para prever um fenômeno com relações não lineares ou muitas interações entre variáveis, o modelo pode ser simples demais para capturar os padrões reais — resultando em baixo desempenho tanto no treino quanto no teste. Esse é um caso clássico de underfitting. Por exemplo: um modelo linear para prever preços de casas que ignora localização, estado, tendências de mercado e interação entre variáveis acaba apresentando erro alto, configurando underfitting. 
+Assim, o problema não é “aprender demais” mas “aprender de menos”: o modelo falha em entender o que importa.
+
+\subsubsection{Redes neurais rasas para reconhecimento de imagens complexas}
+Em tarefas de reconhecimento de imagens, redes neurais rasas (com poucas camadas) podem não ser capazes de capturar as complexidades visuais presentes em imagens reais. Por exemplo, uma rede neural rasa tentando classificar imagens de animais pode não conseguir aprender características complexas como texturas, formas e contextos, resultando em baixo desempenho tanto no conjunto de treino quanto no de teste. Nesse caso, o modelo é incapaz de capturar os padrões necessários para realizar a tarefa, caracterizando underfitting.
