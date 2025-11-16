@@ -3,14 +3,20 @@ Segundo Bashir et al. (2020), \textbf{\textit{overfitting}} ocorre quando um mod
 
 Já o \textbf{\textit{underfitting}} ocorre quando o modelo é simples demais para capturar as relações existentes nos dados, resultando em baixo desempenho tanto no treino quanto nos testes \cite{bashir2020informationtheoreticperspectiveoverfittingunderfitting}.
 
-Para identificar a existência de \textit{overfitting} ou \textit{underfitting}, algumas técnicas comuns incluem:
+Uma forma mais simples de compreender esses conceitos se dá por meio de uma analogia com o ensino escolar, como aponta Patel (2025) \cite{patel2025}. Imagine que um estudante está se preparando para uma prova:
+\begin{itemize}
+  \item Se o estudante apenas memoriza as respostas específicas das questões da prova anterior, ele pode se sair muito bem nessa prova, mas terá dificuldades em responder perguntas diferentes no futuro. Isso é semelhante ao \textit{overfitting}.
+  \item Por outro lado, se o estudante não estuda o suficiente e não compreende os conceitos básicos, ele terá dificuldades em responder tanto as perguntas da prova anterior quanto as novas. Isso é semelhante ao \textit{underfitting}.
+  \item Finalmente, se o estudante entende os conceitos e pratica com uma variedade de perguntas, ele estará bem preparado para qualquer prova. Isso representa um modelo bem ajustado.
+\end{itemize}
+
+Para identificar a existência de \textit{overfitting} ou \textit{underfitting}, algumas técnicas comuns incluem a validação cruzada e a análise de curvas de aprendizado.
 
 \subsubsection{Validação Cruzada}
 
 Gomes (2025) entende que \textbf{validação cruzada} (\textit{cross-validation}) é uma técnica estatística usada para avaliar o desempenho de um modelo e estimar sua capacidade de generalização. O método mais comum é o \textit{k-fold cross-validation}, onde o conjunto de dados é dividido em $k$ subconjuntos; o modelo é treinado em $k~–~1$ partes e testado na parte restante, repetindo-se o processo $k$ vezes \cite{datageeks2025}.
 
 Esse procedimento reduz o risco de que o desempenho do modelo dependa de uma única divisão entre treino e teste, fornecendo uma estimativa mais estável e confiável. Além de ajudar a medir a generalização, a validação cruzada é essencial para comparar modelos e detectar sinais precoces de \textit{overfitting}.
-
 
 \subsubsection{Curvas de aprendizado}
 Para Brownlee (2019), \textbf{curvas de aprendizado} são representações gráficas que mostram a evolução do desempenho do modelo em função da quantidade de dados ou de iterações de treinamento \cite{mlmastery2025}.
