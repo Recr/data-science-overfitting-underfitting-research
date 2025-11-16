@@ -1,4 +1,5 @@
 \subsection{Overfitting e Underfitting}
+
 Segundo Bashir et al. (2020), \textbf{\textit{overfitting}} ocorre quando um modelo aprende detalhes e ruídos específicos do conjunto de treinamento, tornando-se excessivamente ajustado a ele. Com isso, o modelo apresenta ótimo desempenho nos dados de treino, mas falha em generalizar para novos dados \cite{bashir2020informationtheoreticperspectiveoverfittingunderfitting}.
 
 Já o \textbf{\textit{underfitting}} ocorre quando o modelo é simples demais para capturar as relações existentes nos dados, resultando em baixo desempenho tanto no treino quanto nos testes \cite{bashir2020informationtheoreticperspectiveoverfittingunderfitting}.
@@ -10,11 +11,29 @@ Uma forma mais simples de compreender esses conceitos se dá por meio de uma ana
   \item Finalmente, se o estudante entende os conceitos e pratica com uma variedade de perguntas, ele estará bem preparado para qualquer prova. Isso representa um modelo bem ajustado.
 \end{itemize}
 
+Para ilustrar visualmente a diferença entre \textit{underfitting}, ajuste adequado e \textit{overfitting}, considere a Figura~\ref{fig:underfit-overfit}. Nela, três cenários são comparados lado a lado: um modelo simples demais, um modelo equilibrado e um modelo excessivamente complexo.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{cap02-revisao-teorica/02-03-overfitting-e-underfitting/assets/overfitting-underfitting.png}
+  \caption{Comparação visual entre underfitting, ajuste balanceado e overfitting.}
+  \label{fig:underfit-overfit}
+\end{figure}
+
+No primeiro caso, o modelo é incapaz de capturar o padrão dos dados (subajuste). No cenário central, observa-se um equilíbrio adequado entre simplicidade e capacidade de generalização. Já no último caso, o modelo tenta seguir cada variação dos dados de treino, prejudicando a generalização.
+
 Para identificar a existência de \textit{overfitting} ou \textit{underfitting}, algumas técnicas comuns incluem a validação cruzada e a análise de curvas de aprendizado.
 
 \subsubsection{Validação Cruzada}
 
-Gomes (2025) entende que \textbf{validação cruzada} (\textit{cross-validation}) é uma técnica estatística usada para avaliar o desempenho de um modelo e estimar sua capacidade de generalização. O método mais comum é o \textit{k-fold cross-validation}, onde o conjunto de dados é dividido em $k$ subconjuntos; o modelo é treinado em $k~–~1$ partes e testado na parte restante, repetindo-se o processo $k$ vezes \cite{datageeks2025}.
+Gomes (2025) entende que \textbf{validação cruzada} (\textit{cross-validation}) é uma técnica estatística usada para avaliar o desempenho de um modelo e estimar sua capacidade de generalização. O método mais comum é o \textit{k-fold cross-validation}, onde o conjunto de dados é dividido em $k$ subconjuntos; o modelo é treinado em $k~–~1$ partes e testado na parte restante, repetindo-se o processo $k$ vezes \cite{datageeks2025} conforme observado na Figura~\ref{fig:cross-validation}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{cap02-revisao-teorica/02-03-overfitting-e-underfitting/assets/cross-validation.png}
+  \caption{Esquema de validação cruzada (\textit{k-fold cross-validation}).}
+  \label{fig:cross-validation}
+\end{figure}
 
 Esse procedimento reduz o risco de que o desempenho do modelo dependa de uma única divisão entre treino e teste, fornecendo uma estimativa mais estável e confiável. Além de ajudar a medir a generalização, a validação cruzada é essencial para comparar modelos e detectar sinais precoces de \textit{overfitting}.
 
@@ -29,4 +48,11 @@ Normalmente, plota-se o erro (ou acurácia) nos conjuntos de treino e validaçã
   \item Se ambos convergem para valores baixos e próximos, o modelo está bem ajustado.
 \end{itemize}
 
-As curvas possibilitam a identificação de problemas existentes, permitindo ajustar parâmetros, regularização e quantidade de dados para alcançar o equilíbrio ideal entre aprendizado e generalização.
+As curvas possibilitam a identificação de problemas existentes como observado na Figura~\ref{fig:learning-curves}, permitindo ajustar parâmetros, regularização e quantidade de dados para alcançar o equilíbrio ideal entre aprendizado e generalização.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{cap02-revisao-teorica/02-03-overfitting-e-underfitting/assets/learning-curve.png}
+  \caption{Exemplos de curvas de aprendizado indicando underfitting, ajuste adequado e overfitting.}
+  \label{fig:learning-curves}
+\end{figure}
