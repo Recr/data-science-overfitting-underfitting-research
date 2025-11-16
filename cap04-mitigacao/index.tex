@@ -1,3 +1,27 @@
 \section{Mitigando Overfitting e Underfitting}
 
-Texto
+Ao desenvolvermos e testarmos modelos preditivos, estamos sempre em busca de um resultado generalizado: que o modelo consiga prever resultados precisos em novos dados, após treinamento com um conjunto de dados finitos. Nesse contexto, existem maneiras e técnicas para evitar ou reduzir os efeitos trazidos pelo overfitting e underfitting, os quais serão delineados a seguir.
+\subsection{Mitigando Underfitting} 
+\subsubsection{Aumento de Complexidade do Modelo}
+O modo mais simples, porém eficiente, de mitigar o underfitting é aumentar a capacidade do modelo. Na prática isso pode significar muitas coisas, como: 
+\begin{itemize}
+  \item Aumentar a quantidade de dados de treino
+  \item Mudar o modelo (de um linear para um quadrático por exemplo)
+  \item Incorporando mais características ou variáveis para o modelo e parametrizando melhor (engenharia de características). 
+\end{itemize}
+Na prática, o fundamento para essa abordagem é um profundo conhecimento da base de dados e uma boa dose de tentativa e erro, realizando ajustes e comparando com dados de teste. Ironicamente, também deve-se ter cuidado para não deixar o algoritmo complexo demais  e “virar a roda”, passando de underfitting para overfitting \cite{pecanai, ultralytics}.
+\subsubsection{Engenharia de Características (Feature Engineering)}
+A engenharia de características é um processo pelo qual selecionamos características de um conjunto de dados ao treinar um modelo, no intuito de melhorar a sua performance. Isso inclui tanto a adição e criação de novas características, quanto a simplificação, removendo-as. Aos mais perceptivos, fica claro que as técnicas de engenharia de características abarcam os dois problemas [5]. As técnicas incluem, por exemplo, a criação de features polinomiais, termos de interação ou a aplicação de métodos de seleção de features para focar nos pontos mais potentes.
+\subsubsection{Regularização Excessiva}
+Como citado anteriormente, uma causa um tanto estranha do underfitting é justamente os esforços empenhados em mitigar o overfitting. Generalizando, muitos dos meios de mitigar o overfitting se tratam de simplificar o modelo para que não seja afetado por ruídos nos dados de treino. No entanto, esse procedimento realizado em excesso, pode acabar simplificando o modelo demasiadamente, fazendo-o que não perceba os padrões dos dados e passando de overfitting à underfitting.
+
+\subsection{Mitigando Overfitting}
+\subsubsection{Regularização [8, 9, 10]}
+Pelas técnicas de regularização, os parâmetros recebem penalidades, reduzindo a variância dos modelos e, consequentemente, resultando em um modelo mais otimizado e enxuto.
+Regularização L1 (Lasso): Adiciona uma penalidade proporcional 
+à soma dos valores absolutos dos pesos. Sua propriedade mais notável é a capacidade de induzir esparsidade, zerando efetivamente os pesos de features consideradas irrelevantes, realizando assim uma forma de seleção de features automática.
+Regularização L2 (Ridge): Adiciona um termo de penalidade proporcional à soma dos quadrados dos pesos do modelo. Isso incentiva pesos menores, resultando em um modelo "mais suave" e menos sensível a pequenas flutuações nos dados de entrada.
+Dropout: Introduzido por Srivastava et al. (2014) , o Dropout é uma das técnicas de regularização mais impactantes desenvolvidas para redes neurais. O mecanismo central é mais profundo do que simplesmente "adicionar ruído". Durante o treinamento, cada neurônio (e suas conexões) têm uma probabilidade p de ser temporariamente "desligado" (ignorado) em cada passagem de dados (forward/backward pass). A consequência crucial é que os neurônios não podem depender da presença de outros neurônios específicos para corrigir seus erros. Isso os força a aprender características que são individualmente robustas e úteis, prevenindo a "co-adaptação". A visão teórica mais poderosa do Dropout é que ele funciona como uma forma de combinação de modelos (ensemble). Uma rede neural com n neurônios pode ser vista como uma coleção de 2n redes "diluídas" (thinned networks). O Dropout treina efetivamente uma amostra dessa vasta coleção de redes, todas compartilhando pesos. No momento do teste, usar a rede completa com os pesos de saída escalados (multiplicados por p) é uma aproximação de calcular a média das previsões de todo esse ensemble exponencial. Sua eficácia foi demonstrada ao alcançar resultados estado-da-arte no MNIST, superando métodos de regularização padrão da época.
+Data Augmentation: O aumento de dados (Data Augmentation) é outra estratégia eficaz, especialmente em tarefas como visão computacional. Ela se baseia em aumentar a quantidade de dados de treino fazendo pequenas alterações nos dados originais ajudando o modelo a generalizar melhor. No caso de visão computacional, a expansão artificial dos dados de treinamento por meio de inversão, rotação ou corte de imagens. [11,12,13]
+Early Stopping (Parada Antecipada): Talvez a técnica mais simples e onipresente , o Early Stopping monitora o desempenho do modelo em um conjunto de validação separado durante o treinamento. O treinamento é interrompido no momento em que a perda de validação para de diminuir (ou começa a aumentar consistentemente), evitando que o modelo entre na fase de overfitting.
+Sua principal fraqueza é a sensibilidade ao ruído. Devido  à natureza estocástica do treinamento (especialmente com otimizadores como o SGD), as curvas de perda de validação podem ser ruidosas , tornando difícil distinguir um platô temporário ou um pequeno aumento de ruído da divergência final do overfitting.
