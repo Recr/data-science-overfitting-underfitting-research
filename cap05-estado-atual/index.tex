@@ -1,2 +1,22 @@
 \section{Estado Atual do Tema}
-Texto
+O "estado atual" do tema revela uma divisão fascinante. De um lado, a prática industrial ("Mercado") se concentra em otimizar e gerenciar robustamente o trade-off viés-variância clássico.
+Do outro, a pesquisa teórica de fronteira ("Teórico") está ativamente desconstruindo esse mesmo trade-off, revelando fenômenos contraintuitivos que redefinem nossa compreensão da generalização.
+\subsection{Comercialmente}
+Vemos que no âmbito comercial, apesar de  haver sim uma busca por inovação, há um foco e a necessidade muito maior de se dispor de modelos e tecnologias consolidadas. Em outras palavras, o "básico bem feito" é o que predomina. \cite{sculley2015hidden}
+Os principais provedores de nuvem (AWS, Google, Microsoft) definem as melhores práticas da indústria por meio de suas documentações e ferramentas de ML automatizado (AutoML).
+\begin{itemize}
+  \item Amazon Web Services (AWS): A documentação da AWS recomenda um portfólio de cinco estratégias principais para prevenir o overfitting: (1) Early Stopping, 
+  (2) Pruning (seleção de features), (3) Regularização (L1/L2), (4) Ensembling (Bagging/Boosting) e (5) Data Augmentation. \cite{aws2025overfitting}
+  \item Google Cloud: O "Machine Learning Crash Course" do Google enfatiza fortemente a detecção do overfitting através da análise visual de curvas de perda. 
+  O sinal de alerta canônico é a divergência entre a perda de treinamento (que continua caindo) e a perda de validação (que começa a subir).
+  A prevenção foca na qualidade dos dados (garantindo que sejam IID e estáveis) e no gerenciamento da complexidade do modelo. \cite{google2025overfitting}
+  \item Microsoft Azure: A plataforma Azure Automated ML oferece uma visão prática da divisão de responsabilidades. 
+  O Azure AutoML aplica automaticamente regularização ($L_1$, $L_2$, ElasticNet), otimização de hiperparâmetros, limitações de complexidade do modelo (especialmente para árvores de decisão) 
+  e cross-validation (validação cruzada). Isso libera o usuário para focar em tarefas que a plataforma não pode automatizar: (1) Obter mais dados de treinamento, (2) Prevenir target leakage 
+  (vazamento de dados) e (3) Usar menos features (engenharia de features manual). \cite{microsoft2025overfitting}
+\end{itemize}
+
+\subsection{Academicamente}
+No âmbito acadêmico, o estado atual do tema é marcado por avanços teóricos que desafiam as noções tradicionais de viés-variância e generalização. Pesquisas recentes revelam que modelos altamente complexos, como redes neurais profundas, podem generalizar bem, mesmo quando estão em regimes de "overparameterization" (sobreparametrização), onde o número de parâmetros excede o número de dados de treinamento. \cite{cmublog2020overfitting}
+A prática moderna de deep learning é dominada por modelos sobreparametrizados — modelos que têm muito mais parâmetros (pesos) do que pontos de dados de treinamento. Redes neurais massivas e LLMs são rotineiramente treinados para alcançar erro de treinamento zero ou quase zero, um estado conhecido como interpolação. \cite{lafon2024understandingdoubledescentphenomenon}
+De acordo com a curva em "U" clássica (viés-variância), este regime de interpolação deveria ser o pico do overfitting "maligno", resultando em um desempenho de generalização desastroso. No entanto, empiricamente, o oposto foi observado: esses modelos interpolados não apenas generalizavam bem, mas frequentemente superavam os modelos "bem regulados" que ficavam no "ponto ideal" clássico. Essa desconexão entre a teoria clássica e a prática moderna tornou-se um dos problemas de pesquisa mais urgentes no campo. \cite{belkin2019reconciling}
